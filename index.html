@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh; ">
+        <div class="shadow bg-body rounded" style="width: 30rem; height: 30rem; ">
+            
+            <div class="text-center bg-primary text-light fw-bold fs-3 p-2 mb-3">
+                Create Account
+            </div>
+
+            <form action="about.html" onsubmit="return validation()">
+
+                <div class="row d-flex justify-content-evenly" >
+                    <div class="col-lg-6 my-2" style="width: 12rem; " >
+                        <label class="py-1 fw-bold" for="" id="fnameLabel">First Name :</label>
+                        <input class="w-100 py-1" type="text" id="fNameInput" placeholder="Enter your first name" style="font-size: 13px;" title="You must enter your first name only without space">
+                    </div>
+    
+                    <div class="col-lg-6  my-2 " style="width: 12rem; " >
+                        <label class="py-1 fw-bold" for="" id="lnameLabel">Last Name :</label>
+                        <input class="w-100 py-1" type="text" id="lNameInput" placeholder="Enter your last name" style="font-size: 13px;" title="You must enter your last name only without space">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-evenly">
+                    <div class="col-lg-6 my-2" style="width: 12rem; " >
+                        <label class="py-1 fw-bold" id="emailLabel" for="">Email :</label>
+                        <input class="w-100 py-1" id="emailInput" type="text" placeholder="Enter your email address" style="font-size: 13px;" title="your email must be like example@gmail.com">
+                    </div>
+    
+                    <div class="col-lg-6  my-2 " style="width: 12rem; " >
+                        <label class="py-1 fw-bold" id="phoneLabel" for="">Phone Number :</label>
+                        <input class="w-100 py-1" id="phoneInput" type="text" placeholder="Enter your phone number" style="font-size: 13px;" title="your phone number must be link +XXXXXXXXXXXX ">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-evenly">
+                    <div class="col-lg-6 my-2" style="width: 12rem; " >
+                        <label class="py-1 fw-bold" id="passLabel" for="">Password :</label>
+                        <input class="w-100 py-1" id="passInput" type="password" placeholder="Enter your password" style="font-size: 13px;" title="your password must be atleast 8 charcter">
+                    </div>
+    
+                    <div class="col-lg-6  my-2 " style="width: 12rem; " >
+                        <label class="py-1 fw-bold" id="confPassLabel" for="">Confirm Password :</label>
+                        <input class="w-100 py-1" id="confPassInput" type="password" placeholder="Confirm your password" style="font-size: 13px;" title="it must be exactly your password">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-evenly">
+                    <div class="col-lg-6 my-2" style="width: 12rem; " >
+                        <label class="py-1 fw-bold d-block" id="genderLabel" for="">Gender :</label>
+                        <div class="form-check form-check">
+                            <input class="form-check-input" type="radio"  name="gender" id="genderInput1">
+                            <label class="form-check-label text-dark" for="genderInput1">Male</label>
+                          </div>
+                          <div class="form-check form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="genderInput2">
+                            <label class="form-check-label text-dark" for="genderInput2">Female</label>
+                          </div>
+                    </div>
+    
+                    <div class="col-lg-6  my-2 " style="width: 12rem; " >
+                        <label class="py-1 fw-bold" id="birthLabel" for="">Birthdate :</label>
+                        <input class="w-100 py-1" id="birthInput" type="date" style="font-size: 13px;">
+                    </div>
+                </div>
+
+                <div class="ms-4  my-2 ">
+                    <input class="bg-primary border border-0 text-light p-2 rounded-3" type="reset">
+                    <input class="bg-primary border border-0 text-light p-2 rounded-3" type="submit" value="Register">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="js/poper.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

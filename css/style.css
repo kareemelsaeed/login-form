@@ -1,0 +1,6 @@
+.row{
+    --bs-gutter-x: 0;
+}
+label{
+    color: blue;
+}
