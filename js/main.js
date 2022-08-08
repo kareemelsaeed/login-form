@@ -1,5 +1,5 @@
-
-function validation() {
+// index.html js_code 
+ function validation() {
   let myFirstLabel , myFirstInput , myLastLabel , myLastInput , myEmailLabel , myEmailInput ,
        myPhoneLabel , myPhoneInput , mypasswordLabel , mypasswordInput , myConfPasswordLabel ,
        myConfPasswordInput , myBirthdateLabel, myBirthdateInput, myGenderLabel , myGenderInput1 ,
@@ -87,3 +87,48 @@ function validation() {
     return ( valid = true ) ;
   }
 }
+
+// main.html js_code 
+
+function aboutValidation() {
+  let aboutEmail , aboutPassword , valid , emailCheek , myspanEmail , myspanPass;
+
+  aboutEmail = document.querySelector('#aboutEmail');
+  emailCheek = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/ ;
+  myspanEmail = document.querySelector('#spanemail')
+  aboutPassword = document.querySelector('#aboutPass');
+  myspanPass = document.querySelector('#spanpass');
+  valid = true ;
+  // console.log(aboutPassword);
+
+  if (!emailCheek.test(aboutEmail.value)) {
+    myspanEmail.innerHTML = 'please enter valid email address'
+    myspanEmail.style.color = 'red'
+    return ( valid = false);
+  } else if (aboutPassword.value === '' || aboutPassword.value.length < 8) {
+    myspanEmail.innerHTML = ''
+    myspanPass.innerHTML = 'please enter valid password'
+    myspanPass.style.color = 'red'
+    return ( valid = false);
+  } else {
+    myspanPass.innerHTML = ''
+    return ( valid = true );
+  }
+} 
+
+// showpass js_code
+let myShowPass , aboutPassword;
+
+myShowPass = document.querySelector('#showPass')
+aboutPassword = document.querySelector('#aboutPass');
+
+myShowPass.addEventListener('click' , ()=>{
+  if (myShowPass.innerHTML == 'Show Password') {
+    myShowPass.innerHTML = 'Hide Password'
+    aboutPassword.type = 'text'
+  } else {
+    myShowPass.innerHTML = 'Show Password'
+    aboutPassword.type = 'password'
+  }
+})
+
