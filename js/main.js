@@ -1,134 +1,164 @@
-// index.html js_code 
- function validation() {
-  let myFirstLabel , myFirstInput , myLastLabel , myLastInput , myEmailLabel , myEmailInput ,
-       myPhoneLabel , myPhoneInput , mypasswordLabel , mypasswordInput , myConfPasswordLabel ,
-       myConfPasswordInput , myBirthdateLabel, myBirthdateInput, myGenderLabel , myGenderInput1 ,
-       myGenderInput2, phoneCheek , emailCheek , valid;
-  valid = true ;
-  myFirstLabel = document.querySelector('#fnameLabel')
-  myFirstInput = document.querySelector('#fNameInput')
-  myLastLabel = document.querySelector('#lnameLabel')
-  myLastInput = document.querySelector('#lNameInput')
-  emailCheek = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/ ;
-  myEmailLabel = document.querySelector('#emailLabel')
-  myEmailInput = document.querySelector('#emailInput')
-  phoneCheek = /^\+(?:[0-9] ?){6,14}[0-9]$/ ;
-  myPhoneLabel = document.querySelector('#phoneLabel')
-  myPhoneInput = document.querySelector('#phoneInput')
-  mypasswordLabel = document.querySelector('#passLabel')
-  mypasswordInput = document.querySelector('#passInput')
-  myConfPasswordLabel = document.querySelector('#confPassLabel')
-  myConfPasswordInput = document.querySelector('#confPassInput')
-  myBirthdateLabel = document.querySelector('#birthLabel')
-  myBirthdateInput = document.querySelector('#birthInput')
-  myGenderLabel = document.querySelector('#genderLabel')
-  myGenderInput1 = document.querySelector('#genderInput1')
-  myGenderInput2 = document.querySelector('#genderInput2')
-  // console.log(myGenderInput2);
+// index.html JS_code 
 
-  if (
-    myFirstInput.value === "" || 
-    !isNaN(myFirstInput.value) || 
-    myFirstInput.value.indexOf(" ") != -1
-    ) {
-    myFirstLabel.innerHTML = "invalid username"
-    myFirstLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (
-    myLastInput.value === "" || 
-    !isNaN(myLastInput.value) || 
-    myLastInput.value.indexOf(" ") != -1
-    ) {
-    myFirstLabel.innerHTML = "First Name :"
-    myFirstLabel.style.color = 'blue'
-    myLastLabel.innerHTML = "invalid lastname"
-    myLastLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (!emailCheek.test(myEmailInput.value)) {
-    myLastLabel.innerHTML = "Last Name :"
-    myLastLabel.style.color = 'blue'
-    myEmailLabel.innerHTML = "invalid Email"
-    myEmailLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (!phoneCheek.test(myPhoneInput.value)) {
-    myEmailLabel.innerHTML = "Email :"
-    myEmailLabel.style.color = 'blue'
-    myPhoneLabel.innerHTML = "invalid Phone Number"
-    myPhoneLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (mypasswordInput.value === '' || mypasswordInput.value.length < 8) {
-    myPhoneLabel.innerHTML = "Phone Number :"
-    myPhoneLabel.style.color = 'blue'
-    mypasswordLabel.innerHTML = "invalid Password"
-    mypasswordLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (myConfPasswordInput.value !== mypasswordInput.value) {
-    mypasswordLabel.innerHTML = "Password :"
-    mypasswordLabel.style.color = 'blue'
-    myConfPasswordLabel.innerHTML = "invalid Confirm Password"
-    myConfPasswordLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (!myGenderInput1.checked & !myGenderInput2.checked) {
-    myConfPasswordLabel.innerHTML = "Confirm Password :"
-    myConfPasswordLabel.style.color = 'blue'
-    myGenderLabel.innerHTML = "invalid Gender"
-    myGenderLabel.style.color = 'red'
-    return ( valid = false ) ;
-  } else if (myBirthdateInput.value === "") {
-    myGenderLabel.innerHTML = "Gender :"
-    myGenderLabel.style.color = 'blue'
-    myBirthdateLabel.innerHTML = "invalid Birthdate"
-    myBirthdateLabel.style.color = 'red'
-    return ( valid = false ) ;
-  }
-   else {
-    myBirthdateLabel.innerHTML = "Birthdate :"
-    myBirthdateLabel.style.color = 'blue'
-    return ( valid = true ) ;
+let myFLabel = document.querySelector('#fLabel');
+let myFInput = document.querySelector('#fInput');
+let myLLabel = document.querySelector('#lLabel');
+let myLInput = document.querySelector('#lInput');
+let myELabel = document.querySelector('#eLabel');
+let myEInput = document.querySelector('#eInput');
+let myPhLabel = document.querySelector('#phLabel');
+let myPhInput = document.querySelector('#phInput');
+let myPaLabel = document.querySelector('#paLabel');
+let myPaInput = document.querySelector('#paInput');
+let myCpaLabel = document.querySelector('#cPaLabel');
+let myCpaInput = document.querySelector('#cPaInput');
+let myGLabel = document.querySelector('#gLabel');
+let myGInput1 = document.querySelector('#gInput1');
+let myGInput2 = document.querySelector('#gInput2');
+let myBLabel = document.querySelector('#bLabel');
+let myBInput = document.querySelector('#bInput');
+let valid = true ;
+let emailCheek = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/ ;
+let phoneCheek = /^\+(?:[0-9] ?){6,14}[0-9]$/ ;
+
+// console.log(myCpaInput);
+
+function validation() {
+  
+  if (myFInput.value == '' || 
+      !isNaN(myFInput.value) || 
+      myFInput.value.length < 4 || 
+      myFInput.value.indexOf(' ') != -1
+      ) {
+    validInput(myFLabel , 'Invalid UserName')
+    return ( valid = false)
+
+  } else if (myLInput.value == '' ||
+             !isNaN(myLInput.value) ||
+             myLInput.value.length < 4 ||
+             myLInput.value.indexOf(' ') != -1 
+  ) {
+    resetLabel() 
+    validInput(myLLabel , 'Invalid UserName')
+    return ( valid = false)
+
+  } else  if (!emailCheek.test(myEInput.value) &
+              !phoneCheek.test(myEInput.value)
+  ) {
+    resetLabel() 
+    validInput(myELabel , 'Invalid Email or Phone')
+    return ( valid = false)
+
+  } else if (!phoneCheek.test(myPhInput.value)) {
+    resetLabel() 
+    validInput(myPhLabel , 'Invalid Phone Number')
+    return ( valid = false)
+
+  } else if (myPaInput.value == '' ||
+             myPaInput.value.length < 8
+  ) {
+    resetLabel() 
+    validInput(myPaLabel , 'Invalid Password  ')
+    return ( valid = false)
+
+  } else if (myPaInput.value !== myCpaInput.value) {
+    resetLabel() 
+    validInput(myCpaLabel , 'Invalid Confirm Password  ')
+    return ( valid = false)
+
+  } else if (!myGInput1.checked & !myGInput2.checked) {
+    resetLabel() 
+    validInput(myGLabel , 'Invalid Gender')
+    return ( valid = false)
+
+  } else if (myBInput.value == "") {
+    resetLabel() 
+    validInput(myBLabel , 'Invalid Birthdate')
+    return ( valid = false)
+
+  } else {
+    resetLabel()
+    return ( valid = true)
   }
 }
 
-// main.html js_code 
+function validInput(LabelName , text) {
+  LabelName.innerHTML = text
+  LabelName.style.color = 'red'
+}
 
-function aboutValidation() {
-  let aboutEmail , aboutPassword , valid , emailCheek , myspanEmail , myspanPass;
+function resetLabel() {
+  myFLabel.innerHTML = 'First Name :'
+  myFLabel.style.color = 'blue'
+  myLLabel.innerHTML = 'Last Name :'
+  myLLabel.style.color = 'blue'
+  myELabel.innerHTML = 'Email OR Phone :'
+  myELabel.style.color = 'blue'
+  myPhLabel.innerHTML = 'Phone Number :'
+  myPhLabel.style.color = 'blue'
+  myPaLabel.innerHTML = 'Password :'
+  myPaLabel.style.color = 'blue'
+  myCpaLabel.innerHTML = 'Confirm Password :'
+  myCpaLabel.style.color = 'blue'
+  myGLabel.innerHTML = 'Gender :'
+  myGLabel.style.color = 'blue'
+  myBLabel.innerHTML = 'Birthdate :'
+  myBLabel.style.color = 'blue'
+}
 
-  aboutEmail = document.querySelector('#aboutEmail');
-  emailCheek = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/ ;
-  myspanEmail = document.querySelector('#spanemail')
-  aboutPassword = document.querySelector('#aboutPass');
-  myspanPass = document.querySelector('#spanpass');
-  valid = true ;
-  // console.log(aboutPassword);
+// about.html js_code 
 
-  if (!emailCheek.test(aboutEmail.value)) {
-    myspanEmail.innerHTML = 'please enter valid email address'
-    myspanEmail.style.color = 'red'
-    return ( valid = false);
-  } else if (aboutPassword.value === '' || aboutPassword.value.length < 8) {
-    myspanEmail.innerHTML = ''
-    myspanPass.innerHTML = 'please enter valid password'
-    myspanPass.style.color = 'red'
-    return ( valid = false);
+let myIemail = document.querySelector('#aEmail');
+let mySemail = document.querySelector('#sEmail');
+let myIpass = document.querySelector('#aPass');
+let mySpass = document.querySelector('#spass');
+let myShowP = document.querySelector('#showP')
+console.log(myIpass);
+
+function aValidation() {
+  
+  if (!emailCheek.test(myIemail.value) &
+      !phoneCheek.test(myIemail.value)  
+  ) {
+    validInput2(mySemail , 'please enter valid email address')
+    return ( valid = false)
+
+  } else if (myIpass.value === ''  || 
+             myIpass.value.length < 8 
+  ) {
+    resetSpan()
+    validInput2(mySpass , 'please enter valid Phone Number')
+    return ( valid = false)
+
   } else {
-    myspanPass.innerHTML = ''
-    return ( valid = true );
+    resetSpan()
+    return ( valid = true)
   }
-} 
 
-// showpass js_code
-let myShowPass , aboutPassword;
+}
 
-myShowPass = document.querySelector('#showPass')
-aboutPassword = document.querySelector('#aboutPass');
+       
+function validInput2(nLabel , text) {
+    nLabel.innerHTML = text ;
+    nLabel.style.color = 'red';
+}
 
-myShowPass.addEventListener('click' , ()=>{
-  if (myShowPass.innerHTML == 'Show Password') {
-    myShowPass.innerHTML = 'Hide Password'
-    aboutPassword.type = 'text'
+function resetSpan() {
+    mySemail.innerHTML = '';
+    mySpass.innerHTML = '';
+}
+
+
+myShowP.addEventListener('click', ()=>{
+  if (myShowP.innerHTML == 'Show Password') {
+    myShowP.innerHTML = 'Hide Password'
+    myIpass.type = 'text'
+
   } else {
-    myShowPass.innerHTML = 'Show Password'
-    aboutPassword.type = 'password'
+    myShowP.innerHTML = 'Show Password'
+    myIpass.type = 'password'
+
   }
 })
+
 
